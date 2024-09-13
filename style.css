@@ -1,0 +1,55 @@
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0px;
+    font-family: dosis;
+}
+
+body > header {
+    display: flex;
+    justify-content: space-around;
+    background-color: lavender;
+    color: white;
+    align-items: center;
+}
+
+h1 {
+    font-family: Quicksand;
+}
+
+#nav_ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1vh;
+}
+
+#nav_ul > li {
+    list-style: none;
+    margin: 1vw;
+}
+
+#nav_ul > li > a {
+    padding: 1vw;
+    border: 1px solid white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+body > main {
+    margin: 1vw;
+}
+
+body > footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: lavender;
+    color: white;
+    align-items: center;
+    height: 15vh;
+}
