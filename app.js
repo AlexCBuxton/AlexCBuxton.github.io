@@ -1,3 +1,35 @@
+function hide(articles) {
+    for (const article of articles) {
+        document.getElementById(article).setAttribute("hidden", "")
+    }
+}
+
+function show(articles) {
+    for (const article of articles) {
+        document.getElementById(article).removeAttribute("hidden")
+    }
+}
+
+function back() {
+    hide(['Back', 'Reverse_Tri_Ineq', 'Discrete', 'Norm'])
+    show(['Definition', 'hr1', 'Fun_Facts', 'hr2', 'Quiz'])
+}
+
+function reverse_tri_ineq() {
+    hide(['Discrete', 'Norm', 'Definition', 'hr1', 'Fun_Facts', 'hr2', 'Quiz'])
+    show(['Back', 'Reverse_Tri_Ineq'])
+}
+
+function discrete() {
+    hide(['Reverse_Tri_Ineq', 'Norm', 'Definition', 'hr1', 'Fun_Facts', 'hr2', 'Quiz'])
+    show(['Back', 'Discrete'])
+}
+
+function norm() {
+    hide(['Reverse_Tri_Ineq', 'Discrete', 'Definition', 'hr1', 'Fun_Facts', 'hr2', 'Quiz'])
+    show(['Back', 'Norm'])
+}
+
 function Q1_correct() {
     document.getElementById("Q1_result").style.color = "green"
     document.getElementById("Q1_result").innerHTML = "Correct! We omitted 'd(x, y) = 0 if and only if x = y' from the positivity property.";

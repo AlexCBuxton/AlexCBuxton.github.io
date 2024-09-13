@@ -1,55 +1,112 @@
 html {
     margin: 0px;
     padding: 0px;
+    height: 100%; /*Used to keep footer stuck to bottom of page*/
+    scroll-behavior: smooth;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     margin: 0px;
-    font-family: dosis;
+    height: 100%; /*Used to keep footer stuck to bottom of page*/
+    font-family: dosis, Quicksand, Cambria;
 }
 
 body > header {
     display: flex;
     justify-content: space-around;
-    background-color: lavender;
-    color: white;
     align-items: center;
+    background-color: #d19dff;
+    color: white;
 }
 
 h1 {
-    font-family: Quicksand;
+    font-family: Quicksand, dosis, Cambria;
 }
 
-#nav_ul {
+#header_ul, #footer_ul {
     display: flex;
     justify-content: space-evenly;
     padding: 1vh;
 }
 
-#nav_ul > li {
-    list-style: none;
-    margin: 1vw;
+#aside_ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0px;
+    align-items: center;
 }
 
-#nav_ul > li > a {
+#header_ul > li, #footer_ul > li {
+    list-style: none;
+    margin: 0.5vw;
+}
+
+#aside_ul > li {
+    list-style: none;
+}
+
+#header_ul a, #footer_ul a {
+    text-decoration: none;
     padding: 1vw;
     border: 1px solid white;
 }
 
-a:visited {
+#aside_ul a {
     text-decoration: none;
+    display: block;
+    width: 15vw;
+    text-align: center;
+    padding: 1vh;
+    margin-bottom: 3vh;
+    background-color: #d19dff;
+    color: white;
+    border: 1px solid black;
+}
+
+header a:visited, footer a:visited, aside a:visited {
     color: white;
 }
 
 body > main {
+    display: flex;
+    justify-content: space-around;
+    flex: 1 0 auto; /*Used to keep footer stuck to bottom of page*/
     margin: 1vw;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding-right: 1vw;
+}
+
+#main_content {
+    width: 80%;
+    padding-left: 1vw;
+    border-left: 1px solid black;
 }
 
 body > footer {
     display: flex;
     justify-content: space-around;
-    background-color: lavender;
-    color: white;
     align-items: center;
+    background-color: #d19dff;
+    color: white;
     height: 15vh;
+    flex-shrink: 0; /*Used to keep footer stuck to bottom of page*/
+}
+
+h1 > a {
+    text-decoration: none;
+}
+
+button {
+    background-color: rgb(55, 250, 250);
+    border: none;
+    border-radius: 12px;
+    font-family: dosis, Quicksand, Cambria;
 }

@@ -14,126 +14,194 @@
     <header>
         <h1>Metric Spaces Overview</h1>
         <nav>
-            <ul id="nav_ul">
-                <li><a href="#Definition">Definition</a></li>
-                <li><a href="#Fun_Facts">Fun Facts</a></li>
-                <li><a href="#Quiz">Quiz</a></li>
+            <ul id="header_ul">
+                <li><a href="#Definition" onclick="back()">Definition</a></li>
+                <li><a href="#Fun_Facts" onclick="back()">Fun Facts</a></li>
+                <li><a href="#Quiz" onclick="back()">Quiz</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <article id="Definition">
-            <h2>Definition</h2>
-            <p>
-                To define a metric space, we first need to define a metric.
-                Simply put, a metric is a function d : X&#xB2; &#x2192; &#x211D;
-                that measures the distance between two points in a set.
-                The most obvious example is the function d : &#x211D;&#xB2; &#x2192; &#x211D;
-                given by d(x, y) = |x - y|, which is the standard metric used to measure distance on &#x211D;.
-                To make this notion more formal, we define a metric as
-                a function d : X&#xB2; &#x2192; &#x211D;, satisfying the three properties:
-            </p>
-            <ul>
-                <li>Positivity: d(x, y) &#x2265; 0, with d(x, y) = 0 if and only if x = y</li>
-                <li>Symmetry: d(x, y) = d(y, x)</li>
-                <li>Triangle inequality: d(x, y) + d(y, z) &#x2265; d(x, z)</li>
-            </ul>
-            <p>
-                A metric space is then simply a set X endowed with some metric d.
-                Formally we denote this metric space as (X, d),
-                but when it is obvious which metric we are using, we often just denote it by X.
-            </p>
-        </article>
-        <article id="Fun_Facts">
-            <h2>Fun Facts</h2>
-            <p>These are my three favourite facts about metric spaces:</p>
-            <ol>
-                <li>
-                    <p>
-                        The inequality<br>
-                        |d(x, y) - d(x, z)| &#x2264; d(y, z)<br>
-                        is known as the reverse triangle inequality.
-                        It is equivalent to the triangle inequality.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        When presented with a problem about metric spaces, it can be tempting to use geometrical intuition.
-                        For many false theorems which appear true based on geometrical intuition,
-                        you can use the discrete metric as a counter example.
-                        The discrete metric d : X&#xB2; &#x2192; &#x211D; is given by<br>
-                        d(x, y) = 1 if x &#x2260; y, d(x, y) = 0 if x = y<br>
-                        where X is an arbitrary set.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Given a norm &#x2016;&#x00B7;&#x2016;, d(x, y) := &#x2016;x - y&#x2016; defines a metric.
-                        If you aren't familiar with norms, a norm is defined as a map
-                        &#x2016;&#x00B7;&#x2016; : V &#x2192; [0, &#x2218;), where V is a vector space, satisfying:
-                    </p>
-                    <ul>
-                        <li>&#x2016;x&#x2016; &#x2265; 0, with &#x2016;x&#x2016; = 0 if and only if x = 0</li>
-                        <li>&#x2200; &#x03BB; &#x2208; &#x211D;, x &#x2208; V, &#x2016;&#x03BB;x&#x2016; = |&#x03BB;|&#x2016;x&#x2016;</li>
-                        <li>&#x2016;x&#x2016; + &#x2016;y&#x2016; &#x2265; &#x2016;x + y&#x2016;</li>
-                    </ul>
-                </li>
-            </ol>
-        </article>
-        <article id="Quiz">
-            <h2>Quiz</h2>
-            <p>
-                I hope you enjoyed learning about metric spaces! Please enjoy the quiz below:
-            </p>
-            <ol>
-                <li>
-                    <p>
-                        A metric must satisfy positivity, symmetry and the triangle inequality.
-                        Which of these is not stated correctly below?
-                    </p>
-                    <ol type="a">
-                        <li>Positivity: d(x, y) &#x2265; 0</li>
-                        <li>Symmetry: d(x, y) = d(y, x)</li>
-                        <li>Triangle inequality: d(x, y) + d(y, z) &#x2265; d(x, z)</li>
-                    </ol>
-                    <button onclick="Q1_correct()">a</button>
-                    <button onclick="Q1_incorrect()">b</button>
-                    <button onclick="Q1_incorrect()">c</button>
-                    <p id="Q1_result"></p>
-                </li>
-                <li>
-                    <p>
-                        Let d be the discrete metric on [0, 1) &#x222A; [3, 5].
-                    </p>
-                    d(0, 5) = <input type="text" id="Q2_answer">
-                    <button onclick="submit_Q2()">Submit answer</button>
-                    <p id="Q2_result"></p>
-                </li>
-                <li>
-                    <p>
-                        True or false? d : &#x211D;&#xB2; &#x2192; &#x211D; given by
-                        d((x&#x2080;, y&#x2080;), (x&#x2081;, y&#x2081;))
-                        = &#x221A;((x&#x2080; - x&#x2081;)&#xB2; + (y&#x2080; + y&#x2081;)&#xB2;)
-                        is a metric.
-                    </p>
-                    <select id="Q3_answer">
-                        <option value="True">True</option>
-                        <option value="False">False</option>
-                    </select>
-                    <button onclick="submit_Q3()">Submit answer</button>
-                    <p id="Q3_result"></p>
-                </li>
-            </ol>
-        </article>
+        <aside>
+            <h3>Click to see the following proofs of claims made on this page</h3>
+            <nav>
+                <ul id="aside_ul">
+                    <li>
+                        <a href="#Top" onclick="reverse_tri_ineq()" class="proof">
+                            <article>
+                                <h4>Reverse triangle inequality</h4>
+                                <p>Proof of equivalence of the triangle inequality and reverse triangle inequality</p>
+                            </article>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Top" onclick="discrete()" class="proof">
+                            <article>
+                                <h4>Discrete metric</h4>
+                                <p>Proof the discrete metric is indeed a metric</p>
+                            </article>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Top" onclick="norm()" class="proof">
+                            <article>
+                                <h4>Defining metrics from norms</h4>
+                                <p>Proof d(x, y) := &#x2016;x - y&#x2016; defines a metric</p>
+                            </article>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <div id="main_content">
+            <article id="Definition">
+                <h2>Definition</h2>
+                <p>
+                    To define a metric space, we first need to define a metric.
+                    Simply put, a metric is a function d : X&#xB2; &#x2192; &#x211D;
+                    that measures the distance between two points in a set.
+                    The most obvious example is the function d : &#x211D;&#xB2; &#x2192; &#x211D;
+                    given by d(x, y) = |x - y|, which is the standard metric used to measure distance on &#x211D;.
+                    To make this notion more formal, we define a metric as
+                    a function d : X&#xB2; &#x2192; &#x211D;, satisfying the three properties:
+                </p>
+                <ul>
+                    <li>Positivity: d(x, y) &#x2265; 0, with d(x, y) = 0 if and only if x = y</li>
+                    <li>Symmetry: d(x, y) = d(y, x)</li>
+                    <li>Triangle inequality: d(x, y) + d(y, z) &#x2265; d(x, z)</li>
+                </ul>
+                <p>
+                    A metric space is then simply a set X endowed with some metric d.
+                    Formally we denote this metric space as (X, d),
+                    but when it is obvious which metric we are using, we often just denote it by X.
+                </p>
+            </article>
+            <hr id="hr1">
+            <article id="Fun_Facts">
+                <h2>Fun Facts</h2>
+                <p>These are my three favourite facts about metric spaces:</p>
+                <ol>
+                    <li>
+                        <p>
+                            The inequality<br>
+                            |d(x, y) - d(x, z)| &#x2264; d(y, z)<br>
+                            is known as the reverse triangle inequality.
+                            It is equivalent to the triangle inequality.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            When presented with a problem about metric spaces, it can be tempting to use geometrical intuition.
+                            For many false theorems which appear true based on geometrical intuition,
+                            you can use the discrete metric as a counter example.
+                            The discrete metric d : X&#xB2; &#x2192; &#x211D; is given by<br>
+                            d(x, y) = 1 if x &#x2260; y, d(x, y) = 0 if x = y<br>
+                            where X is an arbitrary set.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Given a norm &#x2016;&#x00B7;&#x2016;, d(x, y) := &#x2016;x - y&#x2016; defines a metric.
+                            If you aren't familiar with norms, a norm is defined as a map
+                            &#x2016;&#x00B7;&#x2016; : V &#x2192; [0, &#x2218;), where V is a vector space, satisfying:
+                        </p>
+                        <ul>
+                            <li>&#x2016;x&#x2016; &#x2265; 0, with &#x2016;x&#x2016; = 0 if and only if x = 0</li>
+                            <li>&#x2200; &#x03BB; &#x2208; &#x211D;, x &#x2208; V, &#x2016;&#x03BB;x&#x2016; = |&#x03BB;|&#x2016;x&#x2016;</li>
+                            <li>&#x2016;x&#x2016; + &#x2016;y&#x2016; &#x2265; &#x2016;x + y&#x2016;</li>
+                        </ul>
+                    </li>
+                </ol>
+            </article>
+            <hr id="hr2">
+            <article id="Quiz">
+                <h2>Quiz</h2>
+                <p>
+                    I hope you enjoyed learning about metric spaces! Please enjoy the quiz below:
+                </p>
+                <ol>
+                    <li>
+                        <p>
+                            A metric must satisfy positivity, symmetry and the triangle inequality.
+                            Which of these is not stated correctly below?
+                        </p>
+                        <ol type="a">
+                            <li>Positivity: d(x, y) &#x2265; 0</li>
+                            <li>Symmetry: d(x, y) = d(y, x)</li>
+                            <li>Triangle inequality: d(x, y) + d(y, z) &#x2265; d(x, z)</li>
+                        </ol>
+                        <button onclick="Q1_correct()">a</button>
+                        <button onclick="Q1_incorrect()">b</button>
+                        <button onclick="Q1_incorrect()">c</button>
+                        <p id="Q1_result"></p>
+                    </li>
+                    <li>
+                        <p>
+                            Let d be the discrete metric on [0, 1) &#x222A; [3, 5].
+                        </p>
+                        d(0, 5) = <input type="text" id="Q2_answer">
+                        <button onclick="submit_Q2()">Submit answer</button>
+                        <p id="Q2_result"></p>
+                    </li>
+                    <li>
+                        <p>
+                            True or false? d : &#x211D;&#xB2; &#x2192; &#x211D; given by
+                            d((x&#x2080;, y&#x2080;), (x&#x2081;, y&#x2081;))
+                            = &#x221A;((x&#x2080; - x&#x2081;)&#xB2; + (y&#x2080; + y&#x2081;)&#xB2;)
+                            is a metric.
+                        </p>
+                        <select id="Q3_answer">
+                            <option value="True">True</option>
+                            <option value="False">False</option>
+                        </select>
+                        <button onclick="submit_Q3()">Submit answer</button>
+                        <p id="Q3_result"></p>
+                    </li>
+                </ol>
+            </article>
+            <button id="Back" onclick="back()" hidden>Back</button>
+            <article id="Reverse_Tri_Ineq" hidden>
+                <h2>Theorem</h2>
+                <p>
+                    The reverse triangle inequality<br>
+                    |d(x, y) - d(x, z)| &#x2264; d(y, z)<br>
+                    is equivalent to the triangle inequality<br>
+                    d(x, y) + d(y, z) &#x2265; d(x, z).
+                </p>
+                <h2>Proof</h2>
+                <p>
+                    By the triangle inequality,<br>
+                    d(x, z) + d(y, z) &#x2265; d(x, y)<br>
+                    and<br>
+                    d(x, y) + d(y, z) &#x2265; d(x, z).
+                </p>
+                <p>
+                    So<br>
+                    |d(x, y) - d(x, z)| &#x2264; d(y, z).
+                </p>
+            </article>
+            <article id="Discrete" hidden>
+                <h2>Theorem</h2>
+                <p>STATEMENT OF THEOREM dis</p>
+                <h2>Proof</h2>
+                <p>STATEMENT OF PROOF</p>
+            </article>
+            <article id="Norm" hidden>
+                <h2>Theorem</h2>
+                <p>STATEMENT OF THEOREM nor</p>
+                <h2>Proof</h2>
+                <p>STATEMENT OF PROOF</p>
+            </article>
+        </div>
     </main>
     <footer>
-        <h1><a href="#top">Metric Spaces Overview</a></h1>
+        <h1><a href="#top" onclick="back()">Metric Spaces Overview</a></h1>
         <nav>
-            <ul id="nav_ul">
+            <ul id="footer_ul">
                 <li><a href="#top">Back to top</a></li>
-                <li><a href="#Definition">Definition</a></li>
-                <li><a href="#Fun_Facts">Fun Facts</a></li>
-                <li><a href="#Quiz">Quiz</a></li>
+                <li><a href="#Definition" onclick="back()">Definition</a></li>
+                <li><a href="#Fun_Facts" onclick="back()">Fun Facts</a></li>
+                <li><a href="#Quiz" onclick="back()">Quiz</a></li>
             </ul>
         </nav>
     </footer>
