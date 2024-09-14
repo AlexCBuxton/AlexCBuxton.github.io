@@ -23,6 +23,7 @@ body > header {
 
 h1 {
     font-family: Quicksand, dosis, Cambria;
+    text-shadow: 1px 1px 1px black;
 }
 
 #header_ul, #footer_ul {
