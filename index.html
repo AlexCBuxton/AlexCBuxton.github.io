@@ -27,7 +27,7 @@
             <nav>
                 <ul id="aside_ul">
                     <li>
-                        <a href="#Top" onclick="reverse_tri_ineq()" class="proof">
+                        <a href="#Top" onclick="reverse_tri_ineq()">
                             <article>
                                 <h4>Reverse triangle inequality</h4>
                                 <p>Proof of equivalence of the triangle inequality and reverse triangle inequality</p>
@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#Top" onclick="discrete()" class="proof">
+                        <a href="#Top" onclick="discrete()">
                             <article>
                                 <h4>Discrete metric</h4>
                                 <p>Proof the discrete metric is indeed a metric</p>
@@ -43,7 +43,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#Top" onclick="norm()" class="proof">
+                        <a href="#Top" onclick="norm()">
                             <article>
                                 <h4>Defining metrics from norms</h4>
                                 <p>Proof d(x, y) := &#x2016;x - y&#x2016; defines a metric</p>
@@ -106,7 +106,7 @@
                             &#x2016;&#x00B7;&#x2016; : V &#x2192; [0, &#x2218;), where V is a vector space, satisfying:
                         </p>
                         <ul>
-                            <li>&#x2016;x&#x2016; &#x2265; 0, with &#x2016;x&#x2016; = 0 if and only if x = 0</li>
+                            <li>&#x2016;x&#x2016; = 0 if and only if x = 0</li>
                             <li>&#x2200; &#x03BB; &#x2208; &#x211D;, x &#x2208; V, &#x2016;&#x03BB;x&#x2016; = |&#x03BB;|&#x2016;x&#x2016;</li>
                             <li>&#x2016;x&#x2016; + &#x2016;y&#x2016; &#x2265; &#x2016;x + y&#x2016;</li>
                         </ul>
@@ -139,17 +139,20 @@
                         <p>
                             Let d be the discrete metric on [0, 1) &#x222A; [3, 5].
                         </p>
-                        d(0, 5) = <input type="text" id="Q2_answer">
+                        <label for="Q2_answer">d(0, 5) = </label>
+                        <input type="text" id="Q2_answer">
                         <button onclick="submit_Q2()">Submit answer</button>
                         <p id="Q2_result"></p>
                     </li>
                     <li>
                         <p>
-                            True or false? d : &#x211D;&#xB2; &#x2192; &#x211D; given by
+                            True or false?<br>
+                            d : &#x211D;&#xB2; &#x2192; &#x211D; given by
                             d((x&#x2080;, y&#x2080;), (x&#x2081;, y&#x2081;))
                             = &#x221A;((x&#x2080; - x&#x2081;)&#xB2; + (y&#x2080; + y&#x2081;)&#xB2;)
                             is a metric.
                         </p>
+                        <label for="Q3_answer">True or false:</label>
                         <select id="Q3_answer">
                             <option value="True">True</option>
                             <option value="False">False</option>
@@ -182,15 +185,55 @@
             </article>
             <article id="Discrete" hidden>
                 <h2>Theorem</h2>
-                <p>STATEMENT OF THEOREM dis</p>
+                <p>For any set X, the map d : X&#xB2; &#x2192; &#x211D; given by<br>
+                    d(x, y) = 1 if x &#x2260; y, d(x, y) = 0 if x = y,<br>
+                    is a metric, known as the discrete metric.</p>
                 <h2>Proof</h2>
-                <p>STATEMENT OF PROOF</p>
+                <p>
+                    Positivity and symmetry are easyily seen to hold from this definition, so we just need to check the triangle inequality.
+                </p>
+                <p>
+                    Fix x, y, z &#x2208; X.<br>
+                    This is simply a matter of checking cases. There are four cases to check, noting that d(x, y) + d(y, z) &#x2265; d(x, z) is symmetric in x and z.
+                </p>
+                <p>
+                    Case 1 (x = y = z):<br>
+                    d(x, y) + d(y, z) = 0 = d(x, z)
+                </p>
+                <p>
+                    Case 2 (x = y &#x2260; z):<br>
+                    d(x, y) + d(y, z) = 1 = d(x, z)
+                </p>
+                <p>
+                    Case 3 (x = z &#x2260; y):<br>
+                    d(x, y) + d(y, z) = 2 &#x2265; 0 = d(x, z)
+                </p>
+                <p>
+                    Case 4 (x &#x2260; y &#x2260; z &#x2260; x):<br>
+                    d(x, y) + d(y, z) = 2 &#x2265; 1 = d(x, z)
+                </p>
             </article>
             <article id="Norm" hidden>
                 <h2>Theorem</h2>
-                <p>STATEMENT OF THEOREM nor</p>
+                <p>Given a norm &#x2016;&#x00B7;&#x2016; : X &#x2192; &#x211D; on an arbitrary set X, the map d : X&#xB2; &#x2192; &#x211D; given by<br>
+                    d(x, y) := &#x2016;x - y&#x2016;,<br>
+                    defines a metric.</p>
                 <h2>Proof</h2>
-                <p>STATEMENT OF PROOF</p>
+                <p>
+                    Fix x, y &#x2208; X.<br>
+                </p>
+                <p>
+                    Positivity:<br>
+                    By definition of a norm, &#x2016;x - y&#x2016; &#x2208; [0, &#x2218;) with &#x2016;x - y&#x2016; = 0 if and only if x = y.
+                </p>
+                <p>
+                    Symmetry:<br>
+                    &#x2016;x - y&#x2016; = |-1|&#x2016;x - y&#x2016; = &#x2016;y - x&#x2016;
+                </p>
+                <p>
+                    Triangle inequality:<br>
+                    &#x2016;x - y&#x2016; + &#x2016;y - z&#x2016; &#x2265; &#x2016;(x - y) + (y - z)&#x2016; = &#x2016;x - z&#x2016;
+                </p>
             </article>
         </div>
     </main>
