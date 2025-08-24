@@ -67,7 +67,7 @@ h1 {
     border: 1px solid black;
 }
 
-header a:visited, footer a:visited, aside a:visited {
+header a, footer a, aside a {
     color: white;
 }
 
